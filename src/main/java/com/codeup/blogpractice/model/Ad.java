@@ -1,9 +1,17 @@
 package com.codeup.blogpractice.model;
 
-public class Ad {
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "ads")
+public class Ad {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Column(nullable = false, length = 100)
     private String title;
+    @Column(columnDefinition = "text")
     private String description;
 
     public Ad(long id, String title, String description){
